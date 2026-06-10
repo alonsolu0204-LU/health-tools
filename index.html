@@ -22,14 +22,12 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--gray-50);color:var(--text);line-height:1.6;min-height:100vh}
 
-/* ── Header ── */
 header{background:var(--white);border-bottom:1px solid var(--border-light);padding:0 1.5rem;position:sticky;top:0;z-index:200}
 .hdr{max-width:760px;margin:0 auto;height:54px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:17px;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
 .logo-icon{width:28px;height:28px;background:var(--green-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px}
 .hdr-tag{font-size:11px;background:var(--green-light);color:var(--green);padding:3px 10px;border-radius:20px;font-weight:600}
 
-/* ── Tab bar ── */
 .tab-bar{background:var(--white);border-bottom:1px solid var(--border-light);padding:0 1.5rem;position:sticky;top:54px;z-index:190}
 .tab-inner{max-width:760px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
 .tab-inner::-webkit-scrollbar{display:none}
@@ -37,23 +35,18 @@ header{background:var(--white);border-bottom:1px solid var(--border-light);paddi
 .tab-btn:hover{color:var(--text)}
 .tab-btn.active{color:var(--green);border-bottom-color:var(--green);font-weight:600}
 
-/* ── Main ── */
 .wrap{max-width:760px;margin:0 auto;padding:1.75rem 1.5rem 4rem}
 .panel{display:none}.panel.active{display:block}
 
-/* ── Ad slot ── */
 .ad-slot{width:100%;margin:1.25rem 0 0;background:var(--gray-100);border:1px dashed var(--border);border-radius:var(--radius-sm);min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.ad-slot ins{display:block;width:100%}
 .ad-label{font-size:11px;color:var(--hint);padding:1rem;text-align:center}
 
-/* ── Tool card ── */
 .tool-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden}
 .card-head{padding:1.25rem 1.5rem 0}
 .card-head h2{font-size:17px;font-weight:700;margin-bottom:4px}
 .card-head p{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6}
 .card-body{padding:0 1.5rem 1.5rem}
 
-/* ── Form ── */
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .fields.one{grid-template-columns:1fr}
 .field{display:flex;flex-direction:column;gap:5px}
@@ -64,7 +57,6 @@ header{background:var(--white);border-bottom:1px solid var(--border-light);paddi
 .calc-btn:hover{opacity:.85}
 .calc-btn:active{transform:scale(.99)}
 
-/* ── Result ── */
 .result{display:none;margin-top:1.25rem;padding:1.25rem;background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--radius-sm)}
 .result.show{display:block}
 .result-top{display:flex;align-items:flex-end;gap:12px;margin-bottom:.75rem}
@@ -80,10 +72,9 @@ header{background:var(--white);border-bottom:1px solid var(--border-light);paddi
 .result-cell .lbl{font-size:11px;color:var(--hint);font-weight:600;margin-bottom:2px}
 .result-cell .val{font-size:16px;font-weight:700;color:var(--text)}
 .result-note{font-size:13px;color:var(--muted);line-height:1.7;padding-top:.75rem;border-top:1px solid var(--border-light)}
-/* disclaimer inside result */
 .result-disclaimer{font-size:11px;color:var(--hint);margin-top:8px;padding-top:8px;border-top:1px solid var(--border-light)}
 
-/* ── News ── */
+/* News */
 .news-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
 .news-title{font-size:17px;font-weight:700}
 .news-meta{font-size:12px;color:var(--hint)}
@@ -92,29 +83,34 @@ header{background:var(--white);border-bottom:1px solid var(--border-light);paddi
 .refresh-btn:disabled{opacity:.5;cursor:not-allowed}
 .spin{display:inline-block;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.news-list{display:flex;flex-direction:column;gap:12px}
-.news-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:1.1rem 1.25rem;transition:box-shadow .15s}
+
+.source-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem}
+.src-btn{padding:5px 14px;font-size:12px;font-weight:600;border:1px solid var(--border);border-radius:20px;background:var(--white);cursor:pointer;color:var(--muted);font-family:inherit;transition:all .15s}
+.src-btn.active{background:var(--green-light);color:var(--green);border-color:var(--green)}
+
+.news-list{display:flex;flex-direction:column;gap:10px}
+.news-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:1rem 1.25rem;transition:box-shadow .15s;cursor:default}
 .news-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .news-card-inner{display:flex;gap:14px;align-items:flex-start}
 .news-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .news-content{flex:1;min-width:0}
-.news-cat{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;margin-bottom:6px}
-.news-headline{font-size:15px;font-weight:600;line-height:1.5;margin-bottom:5px;color:var(--text)}
-.news-summary{font-size:13px;color:var(--muted);line-height:1.65}
-.news-source{font-size:11px;color:var(--hint);margin-top:6px}
-.news-skeleton{display:flex;flex-direction:column;gap:12px}
-.skel-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:1.1rem 1.25rem}
-.skel-line{height:12px;background:var(--gray-100);border-radius:4px;margin-bottom:8px;animation:pulse 1.4s ease-in-out infinite}
-.skel-line.short{width:40%}.skel-line.mid{width:70%}
+.news-source-tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;margin-bottom:5px;background:var(--blue-light);color:var(--blue)}
+.news-headline{font-size:14px;font-weight:600;line-height:1.5;margin-bottom:4px;color:var(--text)}
+.news-summary{font-size:12px;color:var(--muted);line-height:1.6}
+.news-date{font-size:11px;color:var(--hint);margin-top:5px}
+
+.news-skeleton{display:flex;flex-direction:column;gap:10px}
+.skel-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:1rem 1.25rem}
+.skel-line{height:11px;background:var(--gray-100);border-radius:4px;margin-bottom:8px;animation:pulse 1.4s ease-in-out infinite}
+.skel-line.short{width:35%}.skel-line.mid{width:65%}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.news-error{text-align:center;padding:3rem 1rem;color:var(--muted)}
-.news-error .err-icon{font-size:32px;margin-bottom:.75rem}
-.news-error p{font-size:14px;line-height:1.7}
-/* news ad: between news items */
+
+.news-error{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.news-error .err-icon{font-size:30px;margin-bottom:.75rem}
+.news-error p{font-size:13px;line-height:1.7}
 .news-ad{margin:4px 0}
 
-/* ── Footer ── */
-footer{background:var(--white);border-top:1px solid var(--border-light);padding:1.5rem 1.5rem;text-align:center}
+footer{background:var(--white);border-top:1px solid var(--border-light);padding:1.5rem;text-align:center}
 footer p{font-size:12px;color:var(--hint);line-height:1.8}
 footer a{color:var(--hint);text-decoration:none}
 
@@ -138,7 +134,7 @@ footer a{color:var(--hint);text-decoration:none}
 
 <div class="tab-bar">
   <div class="tab-inner">
-    <button class="tab-btn active" onclick="switchTab('news')" id="tab-news">📰 每日健康新聞</button>
+    <button class="tab-btn active" onclick="switchTab('news')"  id="tab-news">📰 每日健康新聞</button>
     <button class="tab-btn" onclick="switchTab('bmi')"   id="tab-bmi">⚖️ BMI 體重</button>
     <button class="tab-btn" onclick="switchTab('tdee')"  id="tab-tdee">🔥 每日熱量</button>
     <button class="tab-btn" onclick="switchTab('water')" id="tab-water">💧 飲水量</button>
@@ -149,37 +145,32 @@ footer a{color:var(--hint);text-decoration:none}
 
 <div class="wrap">
 
-  <!-- ══ 新聞 ══ -->
+  <!-- NEWS -->
   <div class="panel active" id="panel-news">
     <div class="news-header">
       <div>
         <div class="news-title">每日健康焦點</div>
         <div class="news-meta" id="news-date">載入中...</div>
       </div>
-      <button class="refresh-btn" onclick="loadNews()" id="refresh-btn">
+      <button class="refresh-btn" onclick="loadNews(currentSource)" id="refresh-btn">
         <span id="refresh-icon">↻</span> 重新整理
       </button>
     </div>
 
-    <!-- 新聞頂部廣告 -->
+    <div class="source-tabs">
+      <button class="src-btn active" onclick="switchSource('heho')"   id="src-heho">Heho 健康</button>
+      
+      
+    </div>
+
     <div class="ad-slot" id="ad-news-top">
-      <!-- Google AdSense: 替換下方為你的廣告代碼 -->
       <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
       <span class="ad-label">廣告版位 — 728×90</span>
     </div>
 
-    <div id="news-container" style="margin-top:1.25rem">
-      <div class="news-skeleton">
-        <div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>
-        <div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>
-        <div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>
-        <div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>
-        <div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>
-      </div>
-    </div>
+    <div id="news-container" style="margin-top:1.25rem"></div>
 
-    <!-- 新聞底部廣告 -->
-    <div class="ad-slot" style="margin-top:1.25rem" id="ad-news-bottom">
+    <div class="ad-slot" style="margin-top:1rem">
       <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
       <span class="ad-label">廣告版位 — 728×90</span>
     </div>
@@ -187,7 +178,7 @@ footer a{color:var(--hint);text-decoration:none}
     <p style="font-size:11px;color:var(--hint);text-align:center;margin-top:1rem">僅供參考。如有健康疑慮請諮詢醫師。</p>
   </div>
 
-  <!-- ══ BMI ══ -->
+  <!-- BMI -->
   <div class="panel" id="panel-bmi">
     <div class="tool-card">
       <div class="card-head">
@@ -196,10 +187,10 @@ footer a{color:var(--hint);text-decoration:none}
       </div>
       <div class="card-body">
         <div class="fields">
-          <div class="field"><label>身高（公分）</label><input type="number" id="bmi-h" placeholder="例：170" min="100" max="250" inputmode="decimal"></div>
-          <div class="field"><label>體重（公斤）</label><input type="number" id="bmi-w" placeholder="例：65" min="20" max="300" inputmode="decimal"></div>
+          <div class="field"><label>身高（公分）</label><input type="number" id="bmi-h" placeholder="例：170" inputmode="decimal"></div>
+          <div class="field"><label>體重（公斤）</label><input type="number" id="bmi-w" placeholder="例：65" inputmode="decimal"></div>
           <div class="field"><label>性別</label><select id="bmi-sex"><option value="m">男性</option><option value="f">女性</option></select></div>
-          <div class="field"><label>年齡</label><input type="number" id="bmi-age" placeholder="例：30" min="1" max="120" inputmode="numeric"></div>
+          <div class="field"><label>年齡</label><input type="number" id="bmi-age" placeholder="例：30" inputmode="numeric"></div>
         </div>
         <button class="calc-btn" onclick="calcBMI()">計算 BMI</button>
         <div class="result" id="bmi-result">
@@ -212,7 +203,6 @@ footer a{color:var(--hint);text-decoration:none}
           <div class="result-note" id="bmi-note"></div>
           <div class="result-disclaimer">僅供參考。如有健康疑慮請諮詢醫師。</div>
         </div>
-        <!-- BMI 廣告 -->
         <div class="ad-slot">
           <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
           <span class="ad-label">廣告版位 — 728×90</span>
@@ -221,7 +211,7 @@ footer a{color:var(--hint);text-decoration:none}
     </div>
   </div>
 
-  <!-- ══ TDEE ══ -->
+  <!-- TDEE -->
   <div class="panel" id="panel-tdee">
     <div class="tool-card">
       <div class="card-head">
@@ -258,7 +248,6 @@ footer a{color:var(--hint);text-decoration:none}
           <div class="result-note" id="tdee-note"></div>
           <div class="result-disclaimer">僅供參考。如有健康疑慮請諮詢醫師。</div>
         </div>
-        <!-- TDEE 廣告 -->
         <div class="ad-slot">
           <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
           <span class="ad-label">廣告版位 — 728×90</span>
@@ -267,7 +256,7 @@ footer a{color:var(--hint);text-decoration:none}
     </div>
   </div>
 
-  <!-- ══ Water ══ -->
+  <!-- WATER -->
   <div class="panel" id="panel-water">
     <div class="tool-card">
       <div class="card-head">
@@ -305,7 +294,6 @@ footer a{color:var(--hint);text-decoration:none}
           <div class="result-note" id="water-note"></div>
           <div class="result-disclaimer">僅供參考。如有健康疑慮請諮詢醫師。</div>
         </div>
-        <!-- Water 廣告 -->
         <div class="ad-slot">
           <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
           <span class="ad-label">廣告版位 — 728×90</span>
@@ -314,7 +302,7 @@ footer a{color:var(--hint);text-decoration:none}
     </div>
   </div>
 
-  <!-- ══ Age ══ -->
+  <!-- AGE -->
   <div class="panel" id="panel-age">
     <div class="tool-card">
       <div class="card-head">
@@ -337,7 +325,6 @@ footer a{color:var(--hint);text-decoration:none}
           <div class="result-note" id="age-note"></div>
           <div class="result-disclaimer">僅供參考。如有健康疑慮請諮詢醫師。</div>
         </div>
-        <!-- Age 廣告 -->
         <div class="ad-slot">
           <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
           <span class="ad-label">廣告版位 — 728×90</span>
@@ -346,7 +333,7 @@ footer a{color:var(--hint);text-decoration:none}
     </div>
   </div>
 
-  <!-- ══ Sleep ══ -->
+  <!-- SLEEP -->
   <div class="panel" id="panel-sleep">
     <div class="tool-card">
       <div class="card-head">
@@ -355,7 +342,7 @@ footer a{color:var(--hint);text-decoration:none}
       </div>
       <div class="card-body">
         <div class="fields">
-          <div class="field"><label>年齡</label><input type="number" id="s-age" placeholder="例：30" min="1" max="100" inputmode="numeric"></div>
+          <div class="field"><label>年齡</label><input type="number" id="s-age" placeholder="例：30" inputmode="numeric"></div>
           <div class="field"><label>預計起床時間</label><input type="time" id="s-wake" value="07:00"></div>
         </div>
         <button class="calc-btn" onclick="calcSleep()">計算睡眠建議</button>
@@ -368,7 +355,6 @@ footer a{color:var(--hint);text-decoration:none}
           <div class="result-note" id="sleep-note"></div>
           <div class="result-disclaimer">僅供參考。如有健康疑慮請諮詢醫師。</div>
         </div>
-        <!-- Sleep 廣告 -->
         <div class="ad-slot">
           <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
           <span class="ad-label">廣告版位 — 728×90</span>
@@ -377,7 +363,7 @@ footer a{color:var(--hint);text-decoration:none}
     </div>
   </div>
 
-</div><!-- /wrap -->
+</div>
 
 <footer>
   <p>健康計算站 &nbsp;·&nbsp; 僅供參考。如有健康疑慮請諮詢醫師。<br>
@@ -385,190 +371,212 @@ footer a{color:var(--hint);text-decoration:none}
 </footer>
 
 <script>
-/* ══ Tab ══ */
-function switchTab(id){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('panel-'+id).classList.add('active');
-  document.getElementById('tab-'+id).classList.add('active');
-  if(id==='news'&&!newsLoaded) loadNews();
-}
+/* ══ 設定：你的 Cloudflare Worker 網址 ══ */
+const RSS_PROXY = 'https://rss-proxy.alonsolu0204.workers.dev';
 
-/* ══ News ══ */
-let newsLoaded=false;
-const CAT_STYLE={
-  '飲食營養':'background:#EAF3DE;color:#3B6D11',
-  '運動健身':'background:#FAEEDA;color:#854F0B',
-  '疾病預防':'background:#FCEBEB;color:#A32D2D',
-  '心理健康':'background:#EEEDFE;color:#534AB7',
-  '醫療科技':'background:#E6F1FB;color:#185FA5'
-};
-const DEFAULT_STYLE='background:#E6F1FB;color:#185FA5';
-const SKEL=`<div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>`;
-
-async function loadNews(){
-  const btn=document.getElementById('refresh-btn');
-  const icon=document.getElementById('refresh-icon');
-  const container=document.getElementById('news-container');
-  btn.disabled=true; icon.className='spin'; icon.textContent='↻';
-  container.innerHTML=`<div class="news-skeleton">${SKEL.repeat(5)}</div>`;
-  const today=new Date();
-  const dateStr=today.toLocaleDateString('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
-  document.getElementById('news-date').textContent=dateStr+' 更新';
-  const prompt=`今天是${dateStr}。請用繁體中文（台灣用語）整理5則當前重要的健康醫療相關新聞或議題，涵蓋飲食營養、運動健身、疾病預防、心理健康、醫療科技等面向。請嚴格只回傳JSON，不要有任何其他文字或markdown：{"news":[{"category":"分類","headline":"標題20字以內","summary":"摘要60-80字","source":"來源類型"}]}`;
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        tools:[{type:'web_search_20250305',name:'web_search'}],
-        messages:[{role:'user',content:prompt}]
-      })
-    });
-    const data=await res.json();
-    let text='';
-    for(const b of data.content||[]){ if(b.type==='text') text+=b.text; }
-    const clean=text.replace(/```json|```/g,'').trim();
-    const parsed=JSON.parse(clean);
-    renderNews(parsed.news);
-    newsLoaded=true;
-  }catch(e){
-    container.innerHTML=`<div class="news-error"><div class="err-icon">📡</div><p>新聞載入失敗，請稍後重試<br><small>上傳至伺服器後即可正常運作</small></p></div>`;
+const RSS_SOURCES = {
+  heho: {
+    name: 'Heho 健康',
+    url: 'https://heho.com.tw/feed',
+    color: 'background:#EAF3DE;color:#3B6D11'
   }
-  btn.disabled=false; icon.className=''; icon.textContent='↻';
+};
+
+let currentSource = 'heho';
+let newsLoaded = false;
+const SKEL = `<div class="skel-card"><div class="skel-line short"></div><div class="skel-line mid"></div><div class="skel-line"></div><div class="skel-line mid"></div></div>`;
+
+/* ══ Tab ══ */
+function switchTab(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+  if (id === 'news' && !newsLoaded) loadNews(currentSource);
 }
 
-function renderNews(items){
-  // Insert ad after item 2 (between 2nd and 3rd news card)
-  const adHtml=`<div class="ad-slot news-ad">
-    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-    <span class="ad-label">廣告版位 — 728×90</span>
-  </div>`;
-  let html='<div class="news-list">';
-  items.forEach((item,i)=>{
-    if(i===2) html+=adHtml;
-    html+=`<div class="news-card"><div class="news-card-inner">
-      <div class="news-num">${i+1}</div>
-      <div class="news-content">
-        <span class="news-cat" style="${CAT_STYLE[item.category]||DEFAULT_STYLE}">${item.category}</span>
-        <div class="news-headline">${item.headline}</div>
-        <div class="news-summary">${item.summary}</div>
-        <div class="news-source">📌 ${item.source}</div>
-      </div>
-    </div></div>`;
-  });
-  html+='</div>';
-  document.getElementById('news-container').innerHTML=html;
-  // re-init adsense if loaded
-  if(window.adsbygoogle) try{(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
+/* ══ Source tabs ══ */
+function switchSource(src) {
+  currentSource = src;
+  document.querySelectorAll('.src-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('src-' + src).classList.add('active');
+  loadNews(src);
+}
+
+/* ══ Load RSS news ══ */
+async function loadNews(src) {
+  const btn = document.getElementById('refresh-btn');
+  const icon = document.getElementById('refresh-icon');
+  const container = document.getElementById('news-container');
+  btn.disabled = true; icon.className = 'spin'; icon.textContent = '↻';
+  container.innerHTML = `<div class="news-skeleton">${SKEL.repeat(5)}</div>`;
+
+  const today = new Date();
+  document.getElementById('news-date').textContent =
+    today.toLocaleDateString('zh-TW', { year:'numeric', month:'long', day:'numeric', weekday:'long' }) + ' 更新';
+
+  const source = RSS_SOURCES[src];
+  const proxyUrl = `${RSS_PROXY}?url=${encodeURIComponent(source.url)}`;
+
+  try {
+    const res = await fetch(proxyUrl);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, 'application/xml');
+    const items = Array.from(xml.querySelectorAll('item')).slice(0, 8);
+
+    if (!items.length) throw new Error('no items');
+
+    const adHtml = `<div class="ad-slot news-ad">
+      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+      <span class="ad-label">廣告版位</span>
+    </div>`;
+
+    let html = '<div class="news-list">';
+    items.forEach((item, i) => {
+      if (i === 3) html += adHtml;
+      const title = item.querySelector('title')?.textContent?.trim() || '無標題';
+      const desc = item.querySelector('description')?.textContent?.replace(/<[^>]+>/g, '').trim().slice(0, 80) || '';
+      const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+      const dateStr = pubDate ? new Date(pubDate).toLocaleDateString('zh-TW', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+      const link = item.querySelector('link')?.textContent?.trim() || '#';
+
+      html += `<div class="news-card" onclick="window.open('${link}','_blank')">
+        <div class="news-card-inner">
+          <div class="news-num">${i + 1}</div>
+          <div class="news-content">
+            <span class="news-source-tag" style="${source.color}">${source.name}</span>
+            <div class="news-headline">${title}</div>
+            ${desc ? `<div class="news-summary">${desc}...</div>` : ''}
+            ${dateStr ? `<div class="news-date">🕐 ${dateStr}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+    newsLoaded = true;
+
+  } catch (e) {
+    container.innerHTML = `<div class="news-error">
+      <div class="err-icon">📡</div>
+      <p>新聞載入失敗，請按重新整理再試<br>
+      <small style="color:var(--hint)">錯誤：${e.message}</small></p>
+    </div>`;
+  }
+
+  btn.disabled = false; icon.className = ''; icon.textContent = '↻';
 }
 
 /* ══ BMI ══ */
-function calcBMI(){
-  const h=parseFloat(document.getElementById('bmi-h').value);
-  const w=parseFloat(document.getElementById('bmi-w').value);
-  if(!h||!w||h<100||w<20){alert('請輸入有效的身高與體重');return;}
-  const bmi=w/Math.pow(h/100,2);
-  document.getElementById('bmi-num').textContent=bmi.toFixed(1);
-  const tag=document.getElementById('bmi-tag');
-  let cat,cls;
-  if(bmi<18.5){cat='體重過輕';cls='tag-blue';}
-  else if(bmi<24){cat='體重正常 ✓';cls='tag-green';}
-  else if(bmi<27){cat='體重過重';cls='tag-yellow';}
-  else if(bmi<30){cat='輕度肥胖';cls='tag-red';}
-  else{cat='中重度肥胖';cls='tag-red';}
-  tag.textContent=cat; tag.className='tag '+cls;
-  const hm=h/100;
-  const lo=(18.5*hm*hm).toFixed(1), hi=(23.9*hm*hm).toFixed(1);
-  document.getElementById('bmi-ideal').textContent=lo+'–'+hi+' kg';
-  const diff=(w-(parseFloat(lo)+parseFloat(hi))/2).toFixed(1);
-  document.getElementById('bmi-diff').textContent=(diff>0?'+':'')+diff+' kg';
-  const notes={'tag-blue':'體重過輕可能影響免疫力與骨質密度。建議增加蛋白質攝取（每公斤 1.2–1.6g），搭配重量訓練。','tag-green':'體重在健康範圍內。維持均衡飲食與每週 150 分鐘中等強度運動即可。','tag-yellow':'體重略高。建議每天減少 300–500 大卡攝取，搭配有氧運動，每週可安全減重約 0.3–0.5 公斤。','tag-red':'體重偏高，建議諮詢醫師或營養師制定安全的減重計畫。'};
-  document.getElementById('bmi-note').textContent=notes[cls];
+function calcBMI() {
+  const h = parseFloat(document.getElementById('bmi-h').value);
+  const w = parseFloat(document.getElementById('bmi-w').value);
+  if (!h || !w || h < 100 || w < 20) { alert('請輸入有效的身高與體重'); return; }
+  const bmi = w / Math.pow(h / 100, 2);
+  document.getElementById('bmi-num').textContent = bmi.toFixed(1);
+  const tag = document.getElementById('bmi-tag');
+  let cat, cls;
+  if (bmi < 18.5)    { cat = '體重過輕'; cls = 'tag-blue'; }
+  else if (bmi < 24) { cat = '體重正常 ✓'; cls = 'tag-green'; }
+  else if (bmi < 27) { cat = '體重過重'; cls = 'tag-yellow'; }
+  else if (bmi < 30) { cat = '輕度肥胖'; cls = 'tag-red'; }
+  else               { cat = '中重度肥胖'; cls = 'tag-red'; }
+  tag.textContent = cat; tag.className = 'tag ' + cls;
+  const hm = h / 100;
+  const lo = (18.5 * hm * hm).toFixed(1), hi = (23.9 * hm * hm).toFixed(1);
+  document.getElementById('bmi-ideal').textContent = lo + '–' + hi + ' kg';
+  const diff = (w - (parseFloat(lo) + parseFloat(hi)) / 2).toFixed(1);
+  document.getElementById('bmi-diff').textContent = (diff > 0 ? '+' : '') + diff + ' kg';
+  const notes = {
+    'tag-blue':   '體重過輕可能影響免疫力與骨質密度。建議增加蛋白質攝取（每公斤 1.2–1.6g），搭配重量訓練。',
+    'tag-green':  '體重在健康範圍內。維持均衡飲食與每週 150 分鐘中等強度運動即可。',
+    'tag-yellow': '體重略高。建議每天減少 300–500 大卡攝取，搭配有氧運動，每週可安全減重約 0.3–0.5 公斤。',
+    'tag-red':    '體重偏高，建議諮詢醫師或營養師制定安全的減重計畫。'
+  };
+  document.getElementById('bmi-note').textContent = notes[cls];
   document.getElementById('bmi-result').classList.add('show');
 }
 
 /* ══ TDEE ══ */
-function calcTDEE(){
-  const h=parseFloat(document.getElementById('tdee-h').value);
-  const w=parseFloat(document.getElementById('tdee-w').value);
-  const age=parseFloat(document.getElementById('tdee-age').value);
-  const sex=document.getElementById('tdee-sex').value;
-  const act=parseFloat(document.getElementById('tdee-act').value);
-  if(!h||!w||!age){alert('請填寫所有欄位');return;}
-  const bmr=sex==='m'?(10*w)+(6.25*h)-(5*age)+5:(10*w)+(6.25*h)-(5*age)-161;
-  const tdee=Math.round(bmr*act);
-  document.getElementById('tdee-num').textContent=tdee.toLocaleString();
-  document.getElementById('tdee-bmr').textContent=Math.round(bmr).toLocaleString()+' kcal';
-  document.getElementById('tdee-cut').textContent=Math.round(tdee*0.8).toLocaleString()+' kcal';
-  document.getElementById('tdee-bulk').textContent=Math.round(tdee*1.1).toLocaleString()+' kcal';
-  document.getElementById('tdee-protein').textContent=Math.round(w*1.6)+'–'+Math.round(w*2.0)+' g';
-  document.getElementById('tdee-note').textContent='減脂建議攝取 TDEE × 80%（每日赤字約 '+Math.round(tdee*0.2).toLocaleString()+' 大卡），每週可減約 0.3–0.5 kg。增肌建議攝取 TDEE × 110%，搭配重量訓練，蛋白質每公斤體重建議 1.6–2.0g。';
+function calcTDEE() {
+  const h = parseFloat(document.getElementById('tdee-h').value);
+  const w = parseFloat(document.getElementById('tdee-w').value);
+  const age = parseFloat(document.getElementById('tdee-age').value);
+  const sex = document.getElementById('tdee-sex').value;
+  const act = parseFloat(document.getElementById('tdee-act').value);
+  if (!h || !w || !age) { alert('請填寫所有欄位'); return; }
+  const bmr = sex === 'm' ? (10*w)+(6.25*h)-(5*age)+5 : (10*w)+(6.25*h)-(5*age)-161;
+  const tdee = Math.round(bmr * act);
+  document.getElementById('tdee-num').textContent = tdee.toLocaleString();
+  document.getElementById('tdee-bmr').textContent = Math.round(bmr).toLocaleString() + ' kcal';
+  document.getElementById('tdee-cut').textContent = Math.round(tdee * 0.8).toLocaleString() + ' kcal';
+  document.getElementById('tdee-bulk').textContent = Math.round(tdee * 1.1).toLocaleString() + ' kcal';
+  document.getElementById('tdee-protein').textContent = Math.round(w * 1.6) + '–' + Math.round(w * 2.0) + ' g';
+  document.getElementById('tdee-note').textContent = '減脂建議攝取 TDEE × 80%（每日赤字約 ' + Math.round(tdee * 0.2).toLocaleString() + ' 大卡），每週可減約 0.3–0.5 kg。增肌建議攝取 TDEE × 110%，搭配重量訓練，蛋白質每公斤體重建議 1.6–2.0g。';
   document.getElementById('tdee-result').classList.add('show');
 }
 
 /* ══ Water ══ */
-function calcWater(){
-  const w=parseFloat(document.getElementById('w-weight').value);
-  if(!w||w<20){alert('請輸入有效體重');return;}
-  const sport=parseInt(document.getElementById('w-sport').value);
-  const climate=parseInt(document.getElementById('w-climate').value);
-  const total=Math.round(w*35)+(sport*10)+climate;
-  document.getElementById('water-num').textContent=(total/1000).toFixed(1);
-  document.getElementById('water-cups').textContent=Math.round(total/250)+' 杯';
-  document.getElementById('water-hourly').textContent=(Math.round(total/16/10)*10)+' ml';
-  document.getElementById('water-note').textContent='建議分散飲用：起床後、每餐前 30 分鐘、運動前中後各補充。若尿液呈深黃色代表需增加水分攝取。腎臟每小時最多處理約 800ml，避免一次大量飲水。';
+function calcWater() {
+  const w = parseFloat(document.getElementById('w-weight').value);
+  if (!w || w < 20) { alert('請輸入有效體重'); return; }
+  const sport = parseInt(document.getElementById('w-sport').value);
+  const climate = parseInt(document.getElementById('w-climate').value);
+  const total = Math.round(w * 35) + (sport * 10) + climate;
+  document.getElementById('water-num').textContent = (total / 1000).toFixed(1);
+  document.getElementById('water-cups').textContent = Math.round(total / 250) + ' 杯';
+  document.getElementById('water-hourly').textContent = (Math.round(total / 16 / 10) * 10) + ' ml';
+  document.getElementById('water-note').textContent = '建議分散飲用：起床後、每餐前 30 分鐘、運動前中後各補充。若尿液呈深黃色代表需增加水分攝取。腎臟每小時最多處理約 800ml，避免一次大量飲水。';
   document.getElementById('water-result').classList.add('show');
 }
 
 /* ══ Age ══ */
-function calcAge(){
-  const bdVal=document.getElementById('bday').value;
-  if(!bdVal){alert('請選擇出生日期');return;}
-  const b=new Date(bdVal),n=new Date();
-  if(b>n){alert('出生日期不能是未來日期');return;}
-  let yrs=n.getFullYear()-b.getFullYear(),mos=n.getMonth()-b.getMonth(),days=n.getDate()-b.getDate();
-  if(days<0){mos--;days+=30;} if(mos<0){yrs--;mos+=12;}
-  document.getElementById('age-num').textContent=yrs;
-  document.getElementById('age-exact').textContent=yrs+' 歲 '+mos+' 月 '+days+' 天';
-  document.getElementById('age-zodiac').textContent=['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'][((b.getFullYear()-4)%12+12)%12];
+function calcAge() {
+  const bdVal = document.getElementById('bday').value;
+  if (!bdVal) { alert('請選擇出生日期'); return; }
+  const b = new Date(bdVal), n = new Date();
+  if (b > n) { alert('出生日期不能是未來日期'); return; }
+  let yrs = n.getFullYear()-b.getFullYear(), mos = n.getMonth()-b.getMonth(), days = n.getDate()-b.getDate();
+  if (days < 0) { mos--; days += 30; } if (mos < 0) { yrs--; mos += 12; }
+  document.getElementById('age-num').textContent = yrs;
+  document.getElementById('age-exact').textContent = yrs + ' 歲 ' + mos + ' 月 ' + days + ' 天';
+  document.getElementById('age-zodiac').textContent = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'][((b.getFullYear()-4)%12+12)%12];
   const sc=[20,19,21,20,21,21,23,23,23,23,22,22];
   const sn=['摩羯座','水瓶座','雙魚座','牡羊座','金牛座','雙子座','巨蟹座','獅子座','處女座','天秤座','天蠍座','射手座'];
-  const m=b.getMonth(),d=b.getDate();
-  document.getElementById('age-star').textContent=d>=sc[m]?sn[(m+1)%12]:sn[m];
-  const next=new Date(n.getFullYear(),b.getMonth(),b.getDate());
-  if(next<=n) next.setFullYear(n.getFullYear()+1);
-  document.getElementById('age-countdown').textContent=Math.ceil((next-n)/86400000)+' 天後';
-  document.getElementById('age-note').textContent='你已經活了 '+Math.floor((n-b)/86400000).toLocaleString()+' 天。下次生日：'+next.getFullYear()+' 年 '+(next.getMonth()+1)+' 月 '+next.getDate()+' 日。';
+  const m = b.getMonth(), d = b.getDate();
+  document.getElementById('age-star').textContent = d >= sc[m] ? sn[(m+1)%12] : sn[m];
+  const next = new Date(n.getFullYear(), b.getMonth(), b.getDate());
+  if (next <= n) next.setFullYear(n.getFullYear() + 1);
+  document.getElementById('age-countdown').textContent = Math.ceil((next-n)/86400000) + ' 天後';
+  document.getElementById('age-note').textContent = '你已經活了 ' + Math.floor((n-b)/86400000).toLocaleString() + ' 天。下次生日：' + next.getFullYear() + ' 年 ' + (next.getMonth()+1) + ' 月 ' + next.getDate() + ' 日。';
   document.getElementById('age-result').classList.add('show');
 }
 
 /* ══ Sleep ══ */
-function calcSleep(){
-  const age=parseInt(document.getElementById('s-age').value);
-  const wake=document.getElementById('s-wake').value;
-  if(!age||!wake){alert('請填寫年齡與起床時間');return;}
-  const table=[[2,11,14],[5,10,13],[13,9,11],[17,8,10],[64,7,9],[120,7,8]];
-  let recMin=7,recMax=9;
-  for(const[maxAge,mn,mx]of table){if(age<=maxAge){recMin=mn;recMax=mx;break;}}
-  const cycles=Math.round((recMin+recMax)/2/1.5);
-  const[wh,wm]=wake.split(':').map(Number);
-  const bedMins=(((wh*60+wm)-cycles*90)%1440+1440)%1440;
-  const bh=Math.floor(bedMins/60),bm=bedMins%60;
-  const fmt=t=>(t<10?'0':'')+t;
-  document.getElementById('sleep-num').textContent=recMin+'–'+recMax;
-  document.getElementById('sleep-bed').textContent=fmt(bh)+':'+fmt(bm);
-  document.getElementById('sleep-cycle').textContent=cycles+' 個週期';
-  document.getElementById('sleep-note').textContent='每個睡眠週期約 90 分鐘，包含淺睡、深睡與 REM 快速動眼期。在週期結束時自然醒來精神最好。建議：睡前 1 小時關閉螢幕、保持室溫 18–22°C、避免睡前 6 小時攝取咖啡因。';
+function calcSleep() {
+  const age = parseInt(document.getElementById('s-age').value);
+  const wake = document.getElementById('s-wake').value;
+  if (!age || !wake) { alert('請填寫年齡與起床時間'); return; }
+  const table = [[2,11,14],[5,10,13],[13,9,11],[17,8,10],[64,7,9],[120,7,8]];
+  let recMin=7, recMax=9;
+  for (const [maxAge,mn,mx] of table) { if (age<=maxAge) { recMin=mn; recMax=mx; break; } }
+  const cycles = Math.round((recMin+recMax)/2/1.5);
+  const [wh,wm] = wake.split(':').map(Number);
+  const bedMins = (((wh*60+wm)-cycles*90)%1440+1440)%1440;
+  const bh = Math.floor(bedMins/60), bm = bedMins%60;
+  const fmt = t => (t<10?'0':'')+t;
+  document.getElementById('sleep-num').textContent = recMin+'–'+recMax;
+  document.getElementById('sleep-bed').textContent = fmt(bh)+':'+fmt(bm);
+  document.getElementById('sleep-cycle').textContent = cycles+' 個週期';
+  document.getElementById('sleep-note').textContent = '每個睡眠週期約 90 分鐘，包含淺睡、深睡與 REM 快速動眼期。在週期結束時自然醒來精神最好。建議：睡前 1 小時關閉螢幕、保持室溫 18–22°C、避免睡前 6 小時攝取咖啡因。';
   document.getElementById('sleep-result').classList.add('show');
 }
 
-window.addEventListener('load',()=>loadNews());
+window.addEventListener('load', () => loadNews(currentSource));
 </script>
 
-<!-- AdSense 主腳本：申請通過後取消以下註解，替換 Publisher ID -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
 
 </body>
