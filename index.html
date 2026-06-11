@@ -492,7 +492,7 @@ async function loadFinanceNews(){
   container.innerHTML=`<div class="news-skeleton">${SKEL.repeat(5)}</div>`;
   const today=new Date();
   document.getElementById('fnews-date').textContent=today.toLocaleDateString('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'})+' 更新';
-  await fetchRSS('https://www.cna.com.tw/rss/aie.xml','fnews-container','中央社財經','news-num-f','news-src-f');
+  await fetchRSS('https://www.cna.com.tw/rss/aie.aspx','fnews-container','中央社財經','news-num-f','news-src-f');
   fnewsLoaded=true;
   btn.disabled=false; icon.className=''; icon.textContent='↻';
 }
