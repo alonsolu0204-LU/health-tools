@@ -502,16 +502,48 @@ async function fetchRSS(rssUrl,containerId,sourceName,numClass,tagClass){
   try{
     const res=await fetch(`${RSS_PROXY}?url=${encodeURIComponent(rssUrl)}`);
     if(!res.ok) throw new Error('HTTP '+res.status);
-    const xml=new DOMParser().parseFromString(await res.text(),'application/xml');
-    const items=Array.from(xml.querySelectorAll('item')).slice(0,8);
+    const rawText=await res.text();
+    const xml=new DOMParser().parseFromString(rawText,'application/xml');
+
+    // 相容各種 RSS 格式：querySelector 和 getElementsByTagName 雙重保險
+    let items=Array.from(xml.querySelectorAll('item'));
+    if(!items.length) items=Array.from(xml.getElementsByTagName('item'));
+    items=items.slice(0,8);
     if(!items.length) throw new Error('no items');
+
     let html='<div class="news-list">';
     items.forEach((item,i)=>{
-      const title=item.querySelector('title')?.textContent?.trim()||'無標題';
-      const desc=item.querySelector('description')?.textContent?.replace(/<[^>]+>/g,'').trim().slice(0,80)||'';
-      const pubDate=item.querySelector('pubDate')?.textContent?.trim()||'';
+      // title
+      const title=(item.querySelector('title')||item.getElementsByTagName('title')[0])?.textContent?.trim()||'無標題';
+      // description
+      const descEl=item.querySelector('description')||item.getElementsByTagName('description')[0];
+      const desc=(descEl?.textContent||descEl?.innerHTML||'').replace(/<[^>]+>/g,'').trim().slice(0,80);
+      // pubDate
+      const pubDate=(item.querySelector('pubDate')||item.getElementsByTagName('pubDate')[0])?.textContent?.trim()||'';
       const dateStr=pubDate?new Date(pubDate).toLocaleDateString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
-      const link=item.querySelector('link')?.textContent?.trim()||'#';
+      // link — 中央社 RSS 的 link 是 text node，不是屬性
+      let link='#';
+      const linkEl=item.getElementsByTagName('link')[0];
+      if(linkEl){
+        // 有些 RSS link 是 text，有些是 nextSibling text node
+        link=linkEl.textContent?.trim()||linkEl.getAttribute('href')||'#';
+        if(!link||link==='#'){
+          // fallback: 找 link 的 nextSibling
+          let node=linkEl.nextSibling;
+          while(node){
+            if(node.nodeType===3&&node.textContent.trim().startsWith('http')){
+              link=node.textContent.trim(); break;
+            }
+            node=node.nextSibling;
+          }
+        }
+      }
+      // 再 fallback 用 guid
+      if(!link||link==='#'){
+        const guid=item.querySelector('guid')||item.getElementsByTagName('guid')[0];
+        if(guid?.getAttribute('isPermaLink')!=='false') link=guid?.textContent?.trim()||'#';
+      }
+
       html+=`<div class="news-card" onclick="window.open('${link}','_blank')">
         <div class="news-card-inner">
           <div class="${numClass}">${i+1}</div>
